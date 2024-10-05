@@ -4,9 +4,14 @@
   margin: 0;
 }
 
+#root {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
 body {
   font-family: sans-serif;
-  padding: 20px;
 }
 
 .flashcards {
@@ -15,16 +20,26 @@ body {
   gap: 20px;
 }
 
+.App {
+  margin-inline: 20px;
+}
+
+@media (max-width: 500px) {
+  .flashcards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
 .flashcards div {
   border: 1px solid #e7e7e7;
   background-color: #f7f7f7;
   border-radius: 7px;
-  aspect-ratio: 2 / 1;
+  /* aspect-ratio: 2 / 1; */
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 20px;
+  padding: 50px 20px;
   cursor: pointer;
 }
 
