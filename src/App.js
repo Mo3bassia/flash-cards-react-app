@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 
 export default function App() {
@@ -51,7 +51,18 @@ function FlashCards() {
   //   setCurrent(e.target);
   //   console.log(current);
   // }
-  const [selectId, setSelectedId] = useState(null);
+  const [selectId, setSelectedId] = useState(() =>
+    !localStorage.getItem("selectedId")
+      ? null
+      : +localStorage.getItem("selectedId")
+  );
+
+  useEffect(
+    function () {
+      localStorage.setItem("selectedId", selectId);
+    },
+    [selectId]
+  );
 
   return (
     <div className="flashcards">
